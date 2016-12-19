@@ -1,0 +1,7 @@
+{% ckan_extends %}
+
+        {% block resource_list_inner %}
+          {% for resource in resources|sort(True) %}
+            {% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %}
+          {% endfor %}
+        {% endblock %}

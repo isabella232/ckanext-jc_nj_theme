@@ -1,0 +1,33 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+{#
+{% snippet "spatial/snippets/spatial_query.html", default_extent="{\"type\":\"Polygon\",\"coordinates\":[[[-74.111961,40.660717],[-74.111961,40.769581],[-74.019814,40.769581],[-74.019814,40.660717],[-74.111961,40.660717]]]}" %}
+#}
+<div class="module module-narrow module-shallow">
+  <h2 class="module-heading">
+    <i class="icon-info-sign"></i>
+    {{ _('Datasets') }}
+  </h2>
+  <div class="module-content">
+    <p>
+      {% trans %}
+        Datasets are available in an easy to read Microsoft Excel format (xlsx),
+        but also in a machine readable format ready for further analysis (csv).
+        Each year of data is provided as a separate file, and caveats and notes
+        are listed on the dataset home pages. If you are looking for a specific
+        dataset or if you have any questions about currently available datasets,
+        please email <a href="mailto:SAmin@jcnj.org">SAmin@jcnj.org</a>.
+      {% endtrans %}
+    </p>
+  </div>
+</div>
+<div class="filters">
+  <div>
+    {% for facet in c.facet_titles %}
+      {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
+    {% endfor %}
+  </div>
+  <a class="close no-text hide-filters"><i class="icon-remove-sign"></i><span class="text">close</span></a>
+</div>
+{% endblock %}
